@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Subjects | twto.</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        font-family: "Montserrat", Arial, sans-serif;
+        background: #fafbfc;
+        overflow-x: hidden !important;
+      }
+      h1,
+      h2,
+      h3,
+      .display-4,
+      .fw-bold {
+        font-family: "Permanent Marker", cursive, "Montserrat", Arial,
+          sans-serif;
+        font-weight: 700;
+      }
+      .sketchy-title {
+        font-family: "Permanent Marker", cursive, sans-serif;
+        color: #3b82f6;
+        font-size: 3rem;
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 6px #d1d5db;
+        font-weight: 700;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+      .brand-blue {
+        color: #3b82f6 !important;
+        font-family: "Permanent Marker", cursive, "Montserrat", Arial,
+          sans-serif !important;
+        font-weight: 700 !important;
+        text-transform: lowercase;
+      }
+      .navbar-brand {
+        font-family: "Permanent Marker", cursive, sans-serif;
+        color: #3b82f6 !important;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: -2px;
+        text-transform: lowercase;
+      }
+      .navbar-nav .nav-link {
+        text-transform: lowercase;
+        font-family: "Montserrat", Arial, sans-serif;
+        /* color: #222; */
+        font-weight: 500;
+      }
+
+      .section-bar {
+        height: 12px;
+        background: #fff;
+        border-radius: 2px;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 2px 8px #3b82f6;
+      }
+      .subject-sketch {
+        font-family: "Permanent Marker", cursive, sans-serif;
+        color: #3b82f6;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+      .subject-sketch-img {
+        max-width: 120px;
+        margin: 0 1rem;
+      }
+      .subject-sketch-img-lg {
+        max-width: 180px;
+      }
+      .classes-title {
+        font-family: "Permanent Marker", cursive, sans-serif;
+        color: #3b82f6;
+        font-size: 4rem;
+        font-weight: 700;
+        letter-spacing: 4px;
+        margin-bottom: 2rem;
+        text-shadow: 0 2px 8px #d1d5db, 0 0 0 #fff;
+        text-transform: uppercase;
+        position: relative;
+        z-index: 2;
+        background: transparent;
+      }
+      .classes-title-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: auto;
+        height: 100%;
+        background: #e3eaf7;
+        opacity: 1;
+        border-radius: 0;
+        z-index: 1;
+        pointer-events: none;
+      }
+      .class-list-title {
+        font-family: "Permanent Marker", cursive, sans-serif;
+        color: #3b82f6;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+      .class-list {
+        font-size: 1rem;
+        font-family: "Montserrat", Arial, sans-serif;
+        color: #222;
+      }
+      .book-session-title {
+        font-family: "Permanent Marker", cursive, sans-serif;
+        color: #3b82f6;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 6px #d1d5db;
+        text-transform: lowercase;
+      }
+      .footer-bg {
+        background: #5996fa;
+      }
+      .footer-brand {
+        font-family: "Permanent Marker", "Comic Sans MS", cursive, sans-serif;
+        color: #fff;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: -2px;
+        text-transform: lowercase;
+        float: left;
+      }
+      .footer-link {
+        color: #fff;
+        font-weight: 700;
+        text-decoration: none;
+        font-family: "Montserrat", Arial, sans-serif;
+        float: left;
+      }
+      .footer-desc {
+        color: #fff;
+        font-size: 1rem;
+        font-family: "Montserrat", Arial, sans-serif;
+        text-align: center;
+      }
+      .footer-divider {
+        width: 100%;
+        height: 4px;
+        background: #fff;
+        border-radius: 2px;
+        margin: 1.5rem 0;
+      }
+      .btn-primary {
+        background-color: #3b82f6;
+        border: none;
+        font-family: "Permanent Marker", cursive, "Montserrat", Arial,
+          sans-serif;
+        font-weight: 700;
+        font-size: 1.2rem;
+        padding: 0.5rem 1.5rem;
+      }
+      .btn-light {
+        border: none;
+        background: #fff;
+        color: #222;
+        font-family: "Permanent Marker", cursive, "Montserrat", Arial,
+          sans-serif;
+        font-weight: 700;
+        font-size: 1.2rem;
+        padding: 0.5rem 1.5rem;
+        box-shadow: none;
+      }
+      .subject-section {
+        background: #5996fa;
+        color: #fff;
+        position: relative;
+        padding: 3rem 0 2rem 0;
+        min-height: 520px;
+        display: flex;
+        align-items: center;
+      }
+      .classes-section {
+        background: #f3f6fa;
+        padding: 2.5rem 0 2rem 0;
+        position: relative;
+      }
+      .book-session-section {
+        background: #fff;
+        padding: 2rem 0 2rem 0;
+        text-align: center;
+        box-shadow: 0 2px 8px #3b82f6;
+      }
+      @media (max-width: 768px) {
+        .sketchy-title {
+          font-size: 2rem;
+        }
+        .classes-title {
+          font-size: 1.7rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body border-bottom">
+        <div class="container">
+          <div class="row w-100 align-items-center">
+            <div class="col-10 mx-auto">
+              <div class="d-flex align-items-center justify-content-between">
+                <button
+                  class="navbar-toggler ms-2"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarTogglerDemo03"
+                  aria-controls="navbarTogglerDemo03"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              </div>
+              <div
+                class="collapse navbar-collapse flex-grow-0 mt-2 mt-lg-0"
+                id="navbarTogglerDemo03"
+              >
+                <a class="navbar-brand" href="/"><img src="Images/HomePage/orgname.svg" alt="logo"></a>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                   <li class="nav-item">
+                    <a
+                      class="nav-link active"
+                      aria-current="page"
+                      href="subjects.html"
+                      >Subjects</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html#testimonials">Testimonials</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="aboutus.html">About Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="Register.html">Register</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <!-- SUBJECTS HERO -->
+      <section
+        class="bg-body-tertiary border-top border-primary"
+        style="border-width: 2px !important"
+      >
+        <div class="container-fluid px-0">
+          <div
+            class="d-flex"
+            style="
+              min-height: 160px;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <div
+              style="
+                flex: 1;
+                display: flex;
+                justify-content: flex-end;
+                align-items: end;
+              "
+            >
+              <img
+                src="Images/SubjectPage/BLACKFLAG (19) 1.svg"
+                alt="b² - 4ac"
+                style="height: 120px; margin-right: 1rem"
+              />
+            </div>
+            <div
+              style="
+                flex: 2;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <h1
+                class="sketchy-title mb-0"
+                style="font-size: 3.2rem; color: #3b82f6; letter-spacing: 2px"
+              >
+                SUBJECTS
+              </h1>
+              <div
+                style="
+                  font-size: 1.3rem;
+                  color: #222;
+                  font-family: 'Montserrat', Arial, sans-serif;
+                  margin-top: 0.5rem;
+                "
+              >
+                Everything we have to offer!
+              </div>
+            </div>
+            <div
+              style="
+                flex: 1;
+                display: flex;
+                justify-content: start;
+                align-items: center;
+              "
+            >
+              <div style="position: relative">
+                <img
+                  src="Images/SubjectPage/aplus.svg.svg"
+                  alt="A+"
+                  style="height: 110px; width: 110px"
+                />
+                <div
+                  style="
+                    position: absolute;
+                    top: -18px;
+                    right: -60px;
+                    width: 180px;
+                    height: 6px;
+                    background: #3b82f6;
+                    border-radius: 3px;
+                  "
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- CLASSES SECTION 2 -->
+      <!-- CLASSES SECTION 3 -->
+      
+      <!-- CHILDHOOD SECTION -->
+      <section
+        class=""
+        style="background: #5996fa; position: relative; min-height: 520px"
+      >
+        <div
+          class="container-fluid position-relative"
+          style="min-height: 520px"
+        >
+          <img
+            src="Images/SubjectPage/cloud.svg.svg"
+            alt="Cloud"
+            class="d-none d-md-block"
+            style="
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 180px;
+              max-width: 30vw;
+              z-index: 1;
+            "
+          />
+          <img
+            src="Images/SubjectPage/sun.svg.svg"
+            alt="Sun"
+            class="d-none d-md-block"
+            style="
+              position: absolute;
+              top: 0;
+              right: 0;
+              width: 180px;
+              max-width: 30vw;
+              z-index: 1;
+            "
+          />
+          <div
+            class="row gx-0 justify-content-center align-items-center"
+            style="min-height: 520px"
+          >
+            <div
+              class="col-lg-12 d-flex flex-column justify-content-center align-items-center"
+              style="height: 100%"
+            >
+              <div
+                class="w-100 text-center"
+                style="
+                  max-width: 600px;
+                  margin: 0 auto;
+                  position: relative;
+                  z-index: 2;
+                "
+              >
+                <h2
+                  class="sketchy-title mb-2"
+                  style="
+                    color: #fff;
+                    font-size: 3rem;
+                    letter-spacing: 2px;
+                    font-family: 'Permanent Marker', cursive;
+                  "
+                >
+                  CHILDHOOD
+                </h2>
+                <div
+                  style="
+                    width: 60px;
+                    height: 3px;
+                    background: #fff;
+                    margin: 0 auto 24px auto;
+                    border-radius: 2px;
+                  "
+                ></div>
+                <div
+                  style="
+                    font-size: 1.25rem;
+                    color: #fff;
+                    font-family: 'Montserrat', Arial, sans-serif;
+                    font-weight: 700;
+                    margin-bottom: 18px;
+                  "
+                >
+                  Early childhood education is fundamental to a student’s
+                  success.
+                </div>
+                <div style="max-width: 520px; margin: 0 auto 18px auto">
+                  <div
+                    style="
+                      background: rgba(255, 255, 255, 0.08);
+                      border-left: 4px solid #fff;
+                      padding: 16px 24px;
+                      font-size: 1.1rem;
+                      color: #fff;
+                      font-family: 'Montserrat', Arial, sans-serif;
+                      margin-bottom: 6px;
+                      text-align: left;
+                    "
+                  >
+                    Children who attend high-quality early childhood education
+                    programs are 25% more likely to graduate high school and 4
+                    times more likely to earn a college degree.
+                  </div>
+                  <div
+                    style="
+                      font-size: 0.95rem;
+                      color: #fff;
+                      font-family: 'Montserrat', Arial, sans-serif;
+                      text-align: left;
+                      margin-left: 8px;
+                    "
+                  >
+                    National Education Association
+                  </div>
+                </div>
+                <div
+                  style="
+                    font-size: 1.1rem;
+                    color: #fff;
+                    font-family: 'Montserrat', Arial, sans-serif;
+                    margin-bottom: 18px;
+                    max-width: 520px;
+                    margin-left: auto;
+                    margin-right: auto;
+                  "
+                >
+                  From a child’s first introduction to education, all students
+                  deserve the opportunity to succeed. Our tutors are equipped to
+                  help with reading, writing, and basic math skills for young
+                  learners.
+                </div>
+                <div class="d-flex flex-column align-items-center mt-4 mb-2">
+                  <span
+                    style="
+                      font-size: 1.2rem;
+                      color: #fff;
+                      font-family: 'Montserrat', Arial, sans-serif;
+                      font-weight: 700;
+                      margin-bottom: 10px;
+                    "
+                    >Book a session today!</span
+                  >
+                  <a
+                    class="btn btn-light btn-lg fw-bold mb-2"
+                    style="
+                      font-size: 1.3rem;
+                      font-family: 'Montserrat', Arial, sans-serif;
+                      box-shadow: 0 2px 8px #3b82f6;
+                    "
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSfdOVk_r_5-yCaJ7f5aapsbCeE6c4-2Le9JihVwope18OLrHA/viewform"
+                    >get started</a
+                  >
+                  <span
+                    style="
+                      font-size: 0.8rem;
+                      color: #fff;
+                      font-family: 'Montserrat', Arial, sans-serif;
+                      max-width: 420px;
+                      text-align: center;
+                      margin-top: 8px;
+                    "
+                    >* For enrichment concerning the curriculum for early
+                    childhood, please consider booking a session for more
+                    information regarding curriculum. This is in part due to
+                    childhood education being difficult to confine to a specific
+                    set of subjects.</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- CLASSES SECTION -->
+      <section class="classes-section p-0">
+        <div class="container position-relative" style="min-height: 600px;">
+          <!-- Graph image at top -->
+          <img src="Images/SubjectPage/graph.svg.svg" alt="Graph" class="classes-graph-img" style="position:absolute; top:0; left:0; width:220px; max-width:30vw; z-index:1;" />
+          <!-- Tree image at bottom -->
+          <img src="Images/SubjectPage/tree.svg.svg" alt="Tree" class="classes-tree-img" style="position:absolute; bottom:0; right:0; width:220px; max-width:30vw; z-index:1;" />
+          <div class="d-flex flex-column align-items-center justify-content-center" style="width:100%; max-width:1200px; margin:0 auto; min-height:600px;">
+            <div style="flex:2.2; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; min-width:0; width:100%;">
+              <div style="text-align:center; color:#3b82f6; font-weight:700; font-size:1.15rem; margin-bottom:0.5rem; margin-top:48px;">Below are the courses we offer to our students. If unsure with which course you are currently studying, please do not hesitate to contact us!</div>
+              <div style="text-align:center; color:#222; font-size:0.95rem; margin-bottom:1.2rem;">Please click on the course to get more information!</div>
+              <!-- All three course sections stacked vertically -->
+              <div style="width:100%;">
+                <!-- Math Section -->
+                <div class="row g-0 justify-content-center" style="border-bottom:1px solid #dbeafe; border-radius:0; max-width:916px; margin:0 auto 32px auto; padding-bottom:16px; background:transparent;">
+                  <div class="col-md-4 p-3">
+                    <div style="color:#3b82f6; font-weight:700; font-size:1.1rem; text-transform:uppercase;">INTERMEDIATE SCHOOL</div>
+                    <div style="color:#3b82f6; font-size:0.95rem; font-weight:700; text-transform:uppercase; margin-bottom:0.5rem;">MIDDLE SCHOOL</div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">MATHEMATICS 1</div><div style="font-size:0.9rem; color:#888;">AGES 11 - 12</div></div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">MATHEMATICS 2</div><div style="font-size:0.9rem; color:#888;">AGES 12 - 13</div></div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">INTRODUCTION TO ALGEBRA</div><div style="font-size:0.9rem; color:#888;">AGES 13 - 14</div></div>
+                  </div>
+                  <div class="col-md-4 p-3">
+                    <div style="color:#3b82f6; font-weight:700; font-size:1.1rem; text-transform:uppercase;">ADVANCED SCHOOL</div>
+                    <div style="color:#3b82f6; font-size:0.95rem; font-weight:700; text-transform:uppercase; margin-bottom:0.5rem;">HIGH SCHOOL</div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">ALGEBRA I</div><div style="font-size:0.9rem; color:#888;">AGES 14 - 15</div></div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">GEOMETRY</div><div style="font-size:0.9rem; color:#888;">AGES 15 - 16</div></div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">ALGEBRA II</div><div style="font-size:0.9rem; color:#888;">AGES 16 - 17</div></div>
+                  </div>
+                  <div class="col-md-4 p-3">
+                    <div style="color:#3b82f6; font-weight:700; font-size:1.1rem; text-transform:uppercase;">ADVANCED COURSES</div>
+                    <div style="color:#3b82f6; font-size:0.95rem; font-weight:700; text-transform:uppercase; margin-bottom:0.5rem;">HIGH SCHOOL+</div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">INTRODUCTION TO CALCULUS</div><div style="font-size:0.9rem; color:#888;">AGES 17-18</div></div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">INTRODUCTION TO TRIGONOMETRY</div><div style="font-size:0.9rem; color:#888;">AGES 17 - 18</div></div>
+                  </div>
+                </div>
+                <!-- English Section -->
+                <div class="row g-0 justify-content-center" style="border-bottom:1px solid #dbeafe; border-radius:0; max-width:916px; margin:0 auto 32px auto; padding-bottom:16px; background:transparent;">
+                  <div class="col-md-4 p-3">
+                    <div style="color:#3b82f6; font-weight:700; font-size:1.1rem; text-transform:uppercase;">INTERMEDIATE SCHOOL</div>
+                    <div style="color:#3b82f6; font-size:0.95rem; font-weight:700; text-transform:uppercase; margin-bottom:0.5rem;">MIDDLE SCHOOL</div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">ENGLISH 1</div><div style="font-size:0.9rem; color:#888;">AGES 11 - 12</div></div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">ENGLISH 2</div><div style="font-size:0.9rem; color:#888;">AGES 12 - 13</div></div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">ENGLISH 3</div><div style="font-size:0.9rem; color:#888;">AGES 13 - 14</div></div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">IMS WRITING FEEDBACK</div><div style="font-size:0.9rem; color:#888;">AGES 11-14</div></div>
+                  </div>
+                  <div class="col-md-4 p-3">
+                    <div style="color:#3b82f6; font-weight:700; font-size:1.1rem; text-transform:uppercase;">ADVANCED SCHOOL</div>
+                    <div style="color:#3b82f6; font-size:0.95rem; font-weight:700; text-transform:uppercase; margin-bottom:0.5rem;">HIGH SCHOOL</div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">ENGLISH 1</div><div style="font-size:0.9rem; color:#888;">AGES 14 - 15</div></div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">ENGLISH 2</div><div style="font-size:0.9rem; color:#888;">AGES 15 - 16</div></div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">ENGLISH 3</div><div style="font-size:0.9rem; color:#888;">AGES 16 - 17</div></div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">ENGLISH 4</div><div style="font-size:0.9rem; color:#888;">AGES 17 - 18</div></div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">ADV WRITING FEEDBACK</div><div style="font-size:0.9rem; color:#888;">AGES 14 - 18</div></div>
+                  </div>
+                  <div class="col-md-4 p-3">
+                    <div style="color:#3b82f6; font-weight:700; font-size:1.1rem; text-transform:uppercase;">ADVANCED COURSES</div>
+                    <div style="color:#3b82f6; font-size:0.95rem; font-weight:700; text-transform:uppercase; margin-bottom:0.5rem;">HIGH SCHOOL+</div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">ESSAY WRITING FEEDBACK</div><div style="font-size:0.9rem; color:#888;">AGES 17-18</div></div>
+                  </div>
+                </div>
+                <!-- Science Section -->
+                <div class="row g-0 justify-content-center" style="max-width:916px; margin:0 auto; background:transparent;">
+                  <div class="col-md-4 p-3">
+                    <div style="color:#3b82f6; font-weight:700; font-size:1.1rem; text-transform:uppercase;">INTERMEDIATE SCHOOL</div>
+                    <div style="color:#3b82f6; font-size:0.95rem; font-weight:700; text-transform:uppercase; margin-bottom:0.5rem;">MIDDLE SCHOOL</div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">SCIENCE 1</div><div style="font-size:0.9rem; color:#888;">AGES 11 - 12</div></div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">SCIENCE 2</div><div style="font-size:0.9rem; color:#888;">AGES 12 - 13</div></div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">SCIENCE 3</div><div style="font-size:0.9rem; color:#888;">AGES 13 - 14</div></div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">INTRO TO HS SCIENCES*</div><div style="font-size:0.9rem; color:#888;">AGES 13-14</div></div>
+                  </div>
+                  <div class="col-md-4 p-3">
+                    <div style="color:#3b82f6; font-weight:700; font-size:1.1rem; text-transform:uppercase;">ADVANCED SCHOOL</div>
+                    <div style="color:#3b82f6; font-size:0.95rem; font-weight:700; text-transform:uppercase; margin-bottom:0.5rem;">HIGH SCHOOL</div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">BIOLOGY</div><div style="font-size:0.9rem; color:#888;">AGES 14 - 15</div></div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">CHEMISTRY</div><div style="font-size:0.9rem; color:#888;">AGES 15 - 16</div></div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">PHYSICS</div><div style="font-size:0.9rem; color:#888;">AGES 16 - 18</div></div>
+                    <div style="margin-bottom:0.5rem;"><div style="color:#3b82f6; font-weight:500;">ANATOMY</div><div style="font-size:0.9rem; color:#888;">AGES 16 - 18</div></div>
+                  </div>
+                  <div class="col-md-4 p-3">
+                    <div style="color:#3b82f6; font-weight:700; font-size:1.1rem; text-transform:uppercase;">ADVANCED COURSES</div>
+                    <div style="color:#3b82f6; font-size:0.95rem; font-weight:700; text-transform:uppercase; margin-bottom:0.5rem;">HIGH SCHOOL+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <style>
+          @media (max-width: 768px) {
+            .classes-graph-img, .classes-tree-img {
+              display: none !important;
+            }
+          }
+        </style>
+      </section>
+      <!-- BOOK SESSION SECTION -->
+      <section class="book-session-section" style="background:#fafbfc; padding:48px 0 48px 0; text-align:center; border:none; box-shadow:none;">
+        <div class="container" style="max-width:100vw; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:24px;">
+          <div style="font-family:'Permanent Marker',cursive; color:#3b82f6; font-size:3.2rem; font-weight:700; text-align:center; margin-bottom:0;">book a session today!</div>
+          <a class="btn btn-primary btn-lg" style="background:#3b82f6; color:#fff; font-family:'Montserrat',Arial,sans-serif; font-weight:700; font-size:1rem; border-radius:6px; box-shadow:none; margin:0 auto;" href="https://docs.google.com/forms/d/e/1FAIpQLSfdOVk_r_5-yCaJ7f5aapsbCeE6c4-2Le9JihVwope18OLrHA/viewform">get started</a>
+          <div style="width:100%; display:flex; flex-direction:row; justify-content:center; align-items:center; margin-top:16px;">
+            <div style="border-left:2px solid #bfcbe6; height:32px; margin-right:12px;"></div>
+            <div style="font-family:'Montserrat',Arial,sans-serif; color:#444; font-size:1rem; text-align:left;">Please try to notify your instructor with your discussion topic 2 hours beforehand for advanced courses!</div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer Section -->
+    <footer class="footer-bg" style="min-height: 270px; position: relative; display: flex; flex-direction: column; justify-content: space-between; padding: 2rem 0 1rem 0;">
+      <div class="container" style="flex: 1; display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+        <!-- Top section with brand and line -->
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%;">
+          <div style="display: flex; flex-direction: column; align-items: flex-start; flex: 0 0 auto;">
+            <div style="font-family: 'Permanent Marker', 'Comic Sans MS', cursive, sans-serif; color: #fff; font-size: 2rem; font-weight: 700; letter-spacing: -2px; text-transform: lowercase; margin-bottom: 0.5rem;">twto.</div>
+            <div style="color: #fff; font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem;">
+              the world tutoring organization.
+            </div>
+            <a href="Register.html" style="color: #fff; font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; text-decoration: none;">contact us</a>
+          </div>
+          <div style="flex: 1; display: flex; justify-content: flex-end; align-items: flex-start; padding-left: 2rem; padding-top: 1rem;">
+            <div style="width: 70%; height: 4px; background: #fff; border-radius: 2px;"></div>
+          </div>
+        </div>
+        
+        <!-- Bottom section with description -->
+        <div style="display: flex; justify-content: center; align-items: center; text-align: center; padding-top: 3rem;">
+          <span style="color: #fff; font-size: 0.875rem; font-family: 'Montserrat', Arial, sans-serif; max-width: 800px; line-height: 1.5;">
+            The World Tutoring Organization is a nonprofit organization designed to help students, regardless of region and financial status, succeed in the classroom and reach their goals.
+          </span>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
