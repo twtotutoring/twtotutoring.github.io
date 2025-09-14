@@ -161,7 +161,7 @@ footer {
 }
 
 /* Brand button style */
-.btn-brand {
+.btn-brand2 {
   background: var(--background-2) !important;
   color: var(--background-1) !important;
   border: none;
@@ -172,9 +172,9 @@ footer {
   box-shadow: 0 2px 8px rgba(85, 139, 255, 0.08);
   transition: background 0.2s, box-shadow 0.2s;
 }
-.btn-brand:hover,
-.btn-brand:focus {
-  background: var(--background-1) !important;
+.btn-brand2:hover,
+.btn-brand2:focus {
+  /* background: var(--background-1) !important; */
   color: var(--background-2) !important;
   box-shadow: 0 4px 16px rgba(85, 139, 255, 0.13);
 }
