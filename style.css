@@ -144,7 +144,7 @@ footer {
 
 .childhood-title {
   font-family: var(--font-freckle-face);
-  font-size: 4.5rem;
+  font-size: 3.5rem;
   font-weight: bold;
   color: var(--background-2);
   letter-spacing: 0.1em;
@@ -250,9 +250,20 @@ footer {
 .subheading {
   font-size: 1.05rem;
 }
+
+@media (max-width: 768px) {
+ .volunteer-hero-img{
+  width: 80%;
+  height: auto;
+ }
+}
 @media (min-width: 768px) {
   .subheading {
     font-size: 1.35rem;
+  }
+
+  .childhood-title{
+    font-size: 4.5rem;
   }
 }
 @media (min-width: 1200px) {
